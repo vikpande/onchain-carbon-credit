@@ -1,0 +1,42 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: mumbai
+    source:
+      address: "0xD1469c441F921BD8b16008001bb4603bc7a2a31b"
+      abi: Contract
+      startBlock: 25511610
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ApprovalForAll
+        - BuyerDeleted
+        - BuyerRegistered
+        - BuyerUpdated
+        - TransferBatch
+        - TransferSingle
+        - URI
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: BuyerDeleted(indexed address)
+          handler: handleBuyerDeleted
+        - event: BuyerRegistered(indexed address,bool)
+          handler: handleBuyerRegistered
+        - event: BuyerUpdated(indexed address,bool)
+          handler: handleBuyerUpdated
+        - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
+          handler: handleTransferBatch
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleTransferSingle
+        - event: URI(string,indexed uint256)
+          handler: handleURI
+      file: ./src/contract.ts
