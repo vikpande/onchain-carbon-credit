@@ -2,7 +2,7 @@ NFT app polygon testnet subgraph
 
 Created on: https://thegraph.com/
 
-URL: https://thegraph.com/studio/subgraph/onchain-carbon-credit/ (no open access)
+URL: https://thegraph.com/studio/subgraph/onchain-carbon-credit/ (private - testnet only)
 
 Network: Matic Mumbai
 
